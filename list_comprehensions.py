@@ -122,6 +122,6 @@ print("Number plus five: ", numbers_plus_5)
 
 # BONUS Make a variable named "primes" that is a list containing the prime numbers in the numbers list. *Hint* you may want to make or find a helper function that determines if a given number is prime or not.
 
-primes = [num for num in numbers if 0 not in [num%i for i in range(2,int(num/2)+1)]]
+primes = [num for num in numbers if (num > 0 and 0 not in [num%i for i in range(2,int(num/2)+1)])]
 
 print (primes)
