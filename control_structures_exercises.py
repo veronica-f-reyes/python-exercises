@@ -10,7 +10,7 @@
 prompt_for_day = input("What day of the week is it? ")
 print(prompt_for_day)
 
-if prompt_for_day == "Monday":
+if prompt_for_day.lower() == "monday":
     print("Yup, today is Monday.")
 else:
     print("Today is not Monday.  It is ", prompt_for_day)
@@ -45,9 +45,10 @@ hourly_rate = 100
 if hrs_worked_per_week <= 40:
     weekly_paycheck = hrs_worked_per_week * hourly_rate
 else:
-     weekly_paycheck = hrs_worked_per_week* (1.5 * hourly_rate)
+    overtime = (hrs_worked_per_week - 40) * (hourly_rate * 1.5)
+    weekly_paycheck = (40 * hourly_rate) + overtime
         
-print(weekly_paycheck)
+print("Weekly paycheck: $", weekly_paycheck)
 
 
 # # Loop Basics - While
@@ -56,6 +57,7 @@ print(weekly_paycheck)
 
 
 #Create an integer variable i with a value of 5.
+
 i = 5
 
 #Create a while loop that runs so long as i is less than or equal to 15
@@ -96,7 +98,7 @@ while i >= -10:
 
 i = 2
 
-while i <= 1000000:
+while i < 1000000:
     print(i)
     i = (i*i)    
 
@@ -209,7 +211,7 @@ while prompt_for_positive_number.isdigit() and int(prompt_for_positive_number) >
 
 prompt_for_positive_number = input("Let's think positive! Enter a positive number, please.  --> ")
 
-while prompt_for_positive_number.isdigit() == False or int(prompt_for_positive_number) < 0 :
+while prompt_for_positive_number.isdigit() == False or int(prompt_for_positive_number) <= 0 :
     print("D'oh! That's not positive or a number.")
     prompt_for_positive_number = input("Let's think positive! Enter a positive number, please.  --> ")
     continue
@@ -245,15 +247,15 @@ for i in range(1,100+1):
     if (int(i) % 3) == 0 and not((int(i) % 5) == 0): 
         print("Fizz")    
      
-    if (int(i) % 5) == 0 and not((int(i) % 3) == 0) : 
+    elif (int(i) % 5) == 0 and not((int(i) % 3) == 0) : 
         print("Buzz")       
         
-    if (int(i) % 5) == 0 and ((int(i) % 3) == 0) : 
+    elif (int(i) % 5) == 0 and ((int(i) % 3) == 0) : 
         print("FizzBuzz")      
-    
-    print(i)  
+    else:
+        print(i)  
          
-i = i+1
+
  
  
 
@@ -277,26 +279,21 @@ want_to_continue = True
 while want_to_continue == True:
     n = input("What number would you like to go up to? Enter an integer.  --> ")
     n = int(n)
-    
-    mydata_list = []
 
     print("\n Here is your table!\n")
     
-#    print('number | squared | cubed')
-#    print('------ | ------- | -----')
+    print('number | squared | cubed')
+    print('------ | ------- | -----')
     
-#    for n in range(1, n+1, 1):
-#        print(f'{n:<7}| {n**2:<8}| {n**3}')
+    for n in range(1, n+1, 1):
+        print(f'{n:<7}| {n**2:<8}| {n**3}')
+
+#Same output not formatted to compare
 
     for i in range(1,n+1):
     
         mydata = [i, i*i, i**3]
         print(mydata)
-    
-        mydata_list.extend(mydata)
-    
-         
-    i = i+1
     
     want_to_continue = input("\nDo you want to try another number? ")
     if want_to_continue == "no" or want_to_continue == "n":
@@ -309,18 +306,7 @@ while want_to_continue == True:
  
        
  
-    #print(mydata_list)
 
-# assign data
-#mydata_list = [{n, n*n, n**3}]
-  
-# create header
-#head = ["Number", "Squared", "Cubed"]
-
-
-    
-# display table
-#print(tabulate(mydata_list, headers=head, tablefmt="grid"))
 
 
 # # 5. Convert given number grades into letter grades.
