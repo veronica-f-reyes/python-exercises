@@ -28,15 +28,15 @@ print(total_pay_for_hrs_worked)
 
 print("Total pay is $",total_pay_for_hrs_worked)
 
-contractor_job = {
+contractor_jobs = {
     "company" : 'Google',
     "pay_rate" : 400, 
     "hrs_worked" : 6
 }
-print(contractor_job)
+print(contractor_jobs)
 
 contractor_jobs = [
-    contractor_job,
+    contractor_jobs,
     {
         "company" : 'Amazon',
         "pay_rate" : 380, 
@@ -54,18 +54,24 @@ contractor_jobs = [
     }
 ]
 print(contractor_jobs)
-print(type(contractor_job), type(contractor_jobs))
+print(type(contractor_jobs), type(contractor_jobs))
 
 #for contractor_job in contractor_jobs:
  #  total_pay_for_hrs_worked += (contractor_job["pay_rate"]* contractor_job["hrs_worked"])
 
 total = 0 
+#print(contractor_jobs["pay_rate"])
+#print(contractor_jobs["hrs_worked"])
 
-#for contractor_job in contractor_jobs:
-# pay = contractor_job["pay_rate"] * contractor_job["hrs_worked"]
+for job in contractor_jobs:
+ # print(contractor_jobs["pay_rate"])
+  print(type(contractor_jobs))
+  print(contractor_jobs)
+  #pay = contractor_jobs["pay_rate"] * contractor_jobs["hrs_worked"]
 #total += pay
 
-print("Total pay is $", total)  
+print('Total pay is $', total)  
+#print(f"Total compensation is ${total}")
 
 #A student can be enrolled to a class only if the class is not full and the class schedule does not conflict with her current schedule.
 
