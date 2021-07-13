@@ -1,35 +1,60 @@
-#Functions Exercises
+#!/usr/bin/env python
+# coding: utf-8
 
-#1. Define a function named is_two. 
+# # 1. Define a function named is_two. 
 # It should accept one input and return True if the passed input is either the number or the string 2, False otherwise.
+
+# In[35]:
+
+
 def is_two(a):
     if (a == str(2) or a == int(2)):
-        print(a, type(a))
         return True
-    elif type(a) != int: 
-            print("Not an integer")
-            return
     else:       
         return False
 
-#2. Define a function named is_vowel. 
+print (is_two(2))
+
+# # 2. Define a function named is_vowel. 
 # It should return True if the passed string is a vowel, False otherwise.
+
+# In[29]:
+
+
 def is_vowel(a):
     if (a in "AEIOUaeiou"):
         return True
     else:
-        return False       
+        return False
 
-#3. Define a function named is_consonant.
-#It should return True if the passed string is a consonant, False otherwise. Use your is_vowel function to accomplish this.
+print(is_vowel('A'))
+
+# # 3. Define a function named is_consonant. 
+# It should return True if the passed string is a consonant, False otherwise. 
+# Use your is_vowel function to accomplish this. 
+
+# In[37]:
+
+
 def is_consonant(c):
     if (is_vowel(c) == False):
         return True
     else:
-        return False        
+        return False
 
- #4. Define a function that accepts a string that is a word. 
- # The function should capitalize the first letter of the word if the word starts with a consonant.       
+print(is_consonant('A'))
+# In[39]:
+
+
+is_consonant('b')
+
+
+# # 4. Define a function that accepts a string that is a word. 
+# The function should capitalize the first letter of the word if the word starts with a consonant.
+
+# In[65]:
+
+
 def is_word(w):
     if type(w) == str:
         if is_consonant(w[0]):
@@ -39,10 +64,20 @@ def is_word(w):
             return w
     else:
         print("Input is not a string.")
-        return
+   
+print(is_word('Alpha'))
 
-#5. Define a function named calculate_tip. 
+# In[66]:
+
+
+is_word(1)
+
+
+# # 5. Define a function named calculate_tip. 
 # It should accept a tip percentage (a number between 0 and 1) and the bill total, and return the amount to tip.
+
+# In[56]:
+
 
 def calculate_tip(pct, bill):
     if (pct < 0 or pct > 1):
@@ -52,8 +87,20 @@ def calculate_tip(pct, bill):
         tip_amt = bill * pct
     return tip_amt
     
-#6. Define a function named apply_discount. 
-# It should accept a original price, and a discount percentage, and return the price after the discount is applied.    
+
+print(calculate_tip(.2,100))
+# In[59]:
+
+
+calculate_tip(0.5, 100)
+
+
+# # 6. Define a function named apply_discount. 
+# It should accept a original price, and a discount percentage, and return the price after the discount is applied.
+
+# In[69]:
+
+
 def apply_discount(orig, disc):
     price_after_disc = orig - (orig * (disc * 0.01))
     
@@ -62,8 +109,18 @@ def apply_discount(orig, disc):
     else:     
         return price_after_disc
 
-#7. Define a function named handle_commas. 
-# It should accept a string that is a number that contains commas in it as input, and return a number as output.        
+print(apply_discount(100,20))
+# In[73]:
+
+
+apply_discount(100,25)
+
+
+# # 7.Define a function named handle_commas.
+# It should accept a string that is a number that contains commas in it as input, and return a number as output.
+
+# In[80]:
+
 
 def handle_commas(num):
     
@@ -71,8 +128,19 @@ def handle_commas(num):
     
     return num
 
-#8. Define a function named get_letter_grade. 
+print(handle_commas('1,234,234'))
+# In[81]:
+
+
+handle_commas('2,753,543')
+
+
+# # 8.Define a function named get_letter_grade. 
 # It should accept a number and return the letter grade associated with that number (A-F). 
+
+# In[104]:
+
+
 def get_letter_grade(num):
     if (num >= 90 and num <=100):
         return "A"
@@ -86,9 +154,21 @@ def get_letter_grade(num):
         return "F"
     else:
         print ("Not a valid input to convert to a letter grade.")
-        return  
+        return
+    
+print(get_letter_grade(90))
 
-#9. Define a function named remove_vowels that accepts a string and returns a string with all the vowels removed.
+# In[107]:
+
+
+get_letter_grade(234564)
+
+
+# # 9. Define a function named remove_vowels that accepts a string and returns a string with all the vowels removed.
+
+# In[108]:
+
+
 def remove_vowels(w):
     vowels = 'AEIOUaeiou'
     w_no_vowels = [letter for letter in w if letter.lower() not in vowels]
@@ -96,12 +176,89 @@ def remove_vowels(w):
     
     return w_no_vowels
 
-#10. Define a function named normalize_name. It should accept a string and return a valid python identifier, that is:
-#   anything that is not a valid python identifier should be removed
-#   leading and trailing whitespace should be removed
-#   everything should be lowercase
-#   spaces should be replaced with underscores
-# for example:
-#   Name will become name
-#   First Name will become first_name
-#   % Completed will become completed
+print(remove_vowels('codeup'))
+# In[111]:
+
+
+remove_vowels('codeup')
+
+
+# # 10. Define a function named normalize_name.
+# It should accept a string and return a valid python identifier, that is:
+#    - anything that is not a valid python identifier should be removed
+#     - leading and trailing whitespace should be removed
+#     - everything should be lowercase
+#     - spaces should be replaced with underscores
+#     - for example:
+#         - Name will become name
+#         - First Name will become first_name
+#         - % Completed will become completed
+
+# In[ ]:
+
+def normalize_name(n):
+
+    n = n.strip()
+    n = n.lower()
+    n = n.replace(' ', '_')
+
+    # input is already cleaned up after initial processing
+    if n.isidentifier() == True:    
+        print("It works!")
+        return n
+    
+    # input starts with numbers 
+    elif n[0].isnumeric() == True: 
+        print("I'm here")
+        n= ''.join([i for i in n if (not i.isdigit() and i.isalpha() or i == '_')])
+        
+        if n == "":
+            print("Value cannot be only digits")
+            return
+        else:
+            return n
+     
+    # input contains special characters  
+    elif n[0].isalpha() == False:
+        print("Starts with special chars")
+        i = 0
+        while n[i].isalpha() == False:
+            n= ''.join([i for i in n if (i.isalpha() or i == '_')])
+            i = i + 1
+            
+            return n
+        
+            break
+     
+    # input starts with special characters 
+    else: 
+        i = 0
+        while n[i].isalpha() == True:
+            n= ''.join([i for i in n if (i.isalpha() or i == '_')])
+            i = i + 1
+            
+            return n
+        
+            break
+
+    
+
+#11. Write a function named cumulative_sum that accepts a list of numbers and returns a list that is the cumulative sum of the numbers in the list.
+#cumulative_sum([1, 1, 1]) returns [1, 2, 3]
+#cumulative_sum([1, 2, 3, 4]) returns [1, 3, 6, 10]        
+        
+def cumulative_sum(num):
+    
+    total = 0
+    
+    total_sum_list= []
+    
+    for i in num:
+            
+            total += i
+            
+            total_sum_list.append(total)
+            
+    return total_sum_list  
+
+print(cumulative_sum([1,2,3,4]))
