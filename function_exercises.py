@@ -6,7 +6,8 @@
 
 # In[35]:
 
-
+# This  is_two function defines a single parameter, a, that is either a string or an integer, 
+# and will return a boolean if it is either a string or integer of value 2
 def is_two(a):
     if (a == str(2) or a == int(2)):
         return True
@@ -20,7 +21,8 @@ print (is_two(2))
 
 # In[29]:
 
-
+# This  is_vowel function defines a single parameter, a, that is a string, 
+# and will return a boolean of value True if it is vowel
 def is_vowel(a):
     if (a in "AEIOUaeiou"):
         return True
@@ -35,7 +37,8 @@ print(is_vowel('A'))
 
 # In[37]:
 
-
+# This  is_consonant function defines a single parameter, c, that is a string, 
+# and will return a boolean of value True if it is consonant
 def is_consonant(c):
     if (is_vowel(c) == False):
         return True
@@ -54,7 +57,8 @@ is_consonant('b')
 
 # In[65]:
 
-
+# This is_word function defines a single parameter, w, that is a string, 
+# and will return a string where the first letter of the word is capitalized if the word starts with a consonant
 def is_word(w):
     if type(w) == str:
         if is_consonant(w[0]):
@@ -78,7 +82,8 @@ is_word(1)
 
 # In[56]:
 
-
+# This calculate_tip function defines two parameters, pct and bill, that are integers, and
+# calculates the tip by multiplying the bill amount and the tip percentage and returning an integer 
 def calculate_tip(pct, bill):
     if (pct < 0 or pct > 1):
         print("Tip percentage must be between 0 and 1")
@@ -100,7 +105,9 @@ calculate_tip(0.5, 100)
 
 # In[69]:
 
-
+# This apply_discount function defines two parameters that are integers, and
+# calculates the discounted price after taking the percentage discount and using it to calulated the discount price and 
+# subtracting it from the original price.  It returns an integer.
 def apply_discount(orig, disc):
     price_after_disc = orig - (orig * (disc * 0.01))
     
@@ -121,7 +128,7 @@ apply_discount(100,25)
 
 # In[80]:
 
-
+# This handle_commas function defines one parameter that is a string and replaces takes out any commas to return an integer.
 def handle_commas(num):
     
     num = int(num.replace(',',''))
@@ -140,6 +147,8 @@ handle_commas('2,753,543')
 
 # In[104]:
 
+# This get_letter_grade function defines one parameter that is a number and determines what letter grade it is 
+# equivalent to and returns a string.
 
 def get_letter_grade(num):
     if (num >= 90 and num <=100):
@@ -168,7 +177,7 @@ get_letter_grade(234564)
 
 # In[108]:
 
-
+#This function, remove_vowels, accepts a string and returns a string with all the vowels removed
 def remove_vowels(w):
     vowels = 'AEIOUaeiou'
     w_no_vowels = [letter for letter in w if letter.lower() not in vowels]
@@ -196,6 +205,9 @@ remove_vowels('codeup')
 
 # In[ ]:
 
+#This function, normalize_name, accepts a string and converts it into a valid python identifier with no starting numbers, 
+#special characters, or spaces at the beginning and end.  It also remove any special characters within the string.
+#It returns a string.
 def normalize_name(n):
 
     n = n.strip()
@@ -246,7 +258,8 @@ def normalize_name(n):
 #11. Write a function named cumulative_sum that accepts a list of numbers and returns a list that is the cumulative sum of the numbers in the list.
 #cumulative_sum([1, 1, 1]) returns [1, 2, 3]
 #cumulative_sum([1, 2, 3, 4]) returns [1, 3, 6, 10]        
-        
+
+#This function, cumulative_sum, accepts a list of numbers and returns a list that is the cumulative sum of the numbers in the list       
 def cumulative_sum(num):
     
     total = 0
