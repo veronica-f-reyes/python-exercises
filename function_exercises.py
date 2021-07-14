@@ -230,7 +230,7 @@ def normalize_name(n):
         else:
             return n
      
-    # input contains special characters  
+    # input starts with special characters  
     elif n[0].isalpha() == False:
         print("Starts with special chars")
         i = 0
@@ -242,7 +242,7 @@ def normalize_name(n):
         
             break
      
-    # input starts with special characters 
+    # input contains special characters 
     else: 
         i = 0
         while n[i].isalpha() == True:
